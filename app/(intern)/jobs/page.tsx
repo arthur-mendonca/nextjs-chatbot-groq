@@ -47,8 +47,8 @@ const Jobs = () => {
 
   return (
     <Layout>
-      <div className="p-8 gap-4 flex flex-col border rounded-md p-4 border-zinc-400">
-        <div className="">
+      <div className="p-8 gap-4 flex flex-col overflow-auto max-h-[95vh]">
+        <div className="bg-zinc-800 p-4 rounded-md">
           <h1 className="text-2xl font-bold mb-4">Jobs</h1>
           <p>
             Bem-vindo à página de vagas. Aqui você encontra as vagas e as rotas
@@ -68,21 +68,23 @@ const Jobs = () => {
             </button>
           </div>
         ) : (
-          <div className="overflow-auto max-h-[75vh]">
+          <div className="">
             <ul>
               {jobs.map((job, index) => (
-                <li key={index}>
-                  <div className="flex flex-col gap-3 mb-3">
+                <li
+                  key={index}
+                  className="bg-zinc-800 flex flex-col rounded-md gap-4 border mb-4 px-8 ">
+                  <div className="py-4 flex flex-col gap-2">
                     <h2 className="text-2xl font-semibold">{job.title}</h2>
                     <p className="text-xl text-zinc-300">Descrição da vaga</p>
                     <p className="text-zinc-300">{job.description}</p>
                   </div>
                   {job.studyRoutes && job.studyRoutes.length > 0 && (
-                    <div className="flex flex-col">
+                    <div className="flex flex-col bg-zinc-900 rounded-md">
                       <h3 className="p-2 mx-4 my-4 text-lg font-medium bg-green-800 rounded-md text-center">
                         Rota de estudo sugerida:
                       </h3>
-                      <ul className="p-4 border border-zinc-600 rounded-md mx-4">
+                      <ul className="p-4 mx-4 overflow-auto max-h-[40vh]">
                         {job.studyRoutes.map((route) => (
                           <li key={route.id}>
                             <ReactMarkdown className={`text-justify`}>
