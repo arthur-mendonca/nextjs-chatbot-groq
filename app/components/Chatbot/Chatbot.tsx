@@ -19,11 +19,6 @@ export default function Chatbot() {
   } | null>(null);
 
   useEffect(() => {
-    console.log(messages);
-    console.log(jobData);
-  }, [messages, jobData]);
-
-  useEffect(() => {
     if (jobData) {
       const sendJobMessage = async () => {
         const userMessage: Message = { role: "user", content: userInput };
@@ -50,7 +45,7 @@ export default function Chatbot() {
           }
 
           const data = await response.json();
-          console.log("Received response:", data);
+
           setMessages([...newMessages, data.response]);
           setUserInput("");
 
