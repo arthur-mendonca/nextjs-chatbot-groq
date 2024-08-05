@@ -10,7 +10,7 @@ export const Menu: React.FC<MenuProps> = () => {
   return (
     <aside
       className={`fixed bottom-0 right-0 left-0 flex items-center 
-      justify-between w-full bg-gray-800 text-white 
+      justify-between w-full bg-gray-800 text-white overflow-auto
       sm:static sm:h-screen sm:flex-col sm:w-60 sm:items-start sm:pl-4`}>
       <nav className="mt-5 w-full">
         <ul className="flex sm:flex-col">
