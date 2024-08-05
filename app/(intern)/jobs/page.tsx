@@ -47,7 +47,7 @@ const Jobs = () => {
 
   return (
     <Layout>
-      <div className="p-8 gap-4 flex flex-col overflow-auto max-h-[95vh]">
+      <div className="p-8 gap-4 flex flex-col overflow-auto max-h-[93vh]">
         <div className="bg-zinc-800 p-4 rounded-md">
           <h1 className="text-2xl font-bold mb-4">Jobs</h1>
           <p>
@@ -81,7 +81,7 @@ const Jobs = () => {
                   </div>
                   {job.studyRoutes && job.studyRoutes.length > 0 && (
                     <div className="flex flex-col bg-zinc-900 rounded-md">
-                      <h3 className="p-2 mx-4 my-4 text-lg font-medium bg-green-800 rounded-md text-center">
+                      <h3 className="p-2 mx-4 my-4 text-lg font-medium bg-zinc-600 rounded-md text-center">
                         Rota de estudo sugerida:
                       </h3>
                       <ul className="p-4 mx-4 overflow-auto max-h-[40vh]">

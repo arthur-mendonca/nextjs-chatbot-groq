@@ -10,12 +10,13 @@ export interface LayoutProps {
 const Layout: React.FC<{ children: React.ReactNode }> = (
   props: LayoutProps
 ) => {
-  const [showJobs, setShowJobs] = useState(false);
-
   return (
-    <div className={`flex ${props.className}`}>
-      <Menu showJobs={showJobs} setShowJobs={setShowJobs} />
-      <div className="w-full max-w-[1024px] mx-auto">
+    <div
+      className={`flex flex-col-reverse sm:flex-row sm:flex ${props.className}`}>
+      <div className="">
+        <Menu />
+      </div>
+      <div className="max-w-[1024px] mx-auto ">
         <main className={`flex-1 p-6`}>{props.children}</main>
       </div>
     </div>

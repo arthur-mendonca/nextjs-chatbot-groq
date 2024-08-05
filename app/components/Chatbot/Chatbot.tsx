@@ -76,7 +76,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="w-full flex flex-col gap-6">
+    <div className="w-full flex flex-col gap-6 h-screen mb-14 sm:mb-0 sm:h-auto">
       <div className="bg-zinc-800 h-[60vh]  p-4 rounded-md overflow-auto">
         {messages.map((message, index) => (
           <div key={index} className={message.role}>
@@ -84,7 +84,11 @@ export default function Chatbot() {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col gap-4 items-center justify-center">
+        <p className="mx-12 text-center">
+          Insira no formulário um título de vaga, descrição de vaga e as
+          tecnologias associadas à vaga para receber um roadmap de estudos.
+        </p>
         <JobForm onSubmit={handleJobData} />
       </div>
     </div>
