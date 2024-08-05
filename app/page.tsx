@@ -6,10 +6,10 @@ interface HomeProps {
   children: React.ReactNode;
 }
 
-export default function Home({ children }: HomeProps): JSX.Element {
+export default function Home(props: HomeProps) {
   return (
     <>
-      <Layout>{children}</Layout>
+      <Layout>{props.children}</Layout>
     </>
   );
 }
