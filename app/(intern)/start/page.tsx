@@ -12,7 +12,7 @@ const Introduction = () => {
 
   return (
     <Layout>
-      <div className="min-h-[80vh] flex flex-col items-center justify-center p-4">
+      <div className="min-h-[80vh] h-full flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-6">
           Bem-vindo ao Study Roadmap Chatbot
         </h1>
@@ -32,7 +32,7 @@ const Introduction = () => {
           Começar a conversa
         </button>
       </div>
-      <div>
+      <div className="mb-48 sm:mb-0">
         <small>
           <p className="text-center">
             Aviso legal: este site foi criado para fins educacionais e não tem o

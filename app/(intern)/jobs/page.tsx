@@ -73,7 +73,7 @@ const Jobs = () => {
               {jobs.map((job, index) => (
                 <li
                   key={index}
-                  className="bg-zinc-800 flex flex-col rounded-md gap-4 border mb-4 px-8 ">
+                  className="bg-zinc-800 flex flex-col rounded-md gap-4 border mb-4 px-3 sm:px-8 ">
                   <div className="py-4 flex flex-col gap-2">
                     <h2 className="text-2xl font-semibold">{job.title}</h2>
                     <p className="text-xl text-zinc-300">Descrição da vaga</p>

@@ -32,7 +32,7 @@ const JobForm: React.FC<JobFormProps> = ({ onSubmit, initialJob }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 text-black w-[50%]">
+      className="flex flex-col gap-4 text-black w-[50%] mb-8 sm:mb-0">
       <input
         type="text"
         name="title"
