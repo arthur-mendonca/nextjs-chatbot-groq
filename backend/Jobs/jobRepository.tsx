@@ -3,21 +3,22 @@ import { Job } from "@/app/types";
 
 export default class JobRepository {
   static async createOrUpdate(job: Job): Promise<Job> {
-    return await prisma.job.upsert({
-      where: { id: job.id },
-      update: {
-        ...job,
-        studyRoutes: {
-          create: job.studyRoutes,
+    if (job.id) {
+      return await prisma.job.update({
+        where: { id: job.id },
+        data: {
+          ...job,
+          studyRoutes: { create: job.studyRoutes },
         },
-      },
-      create: {
-        ...job,
-        studyRoutes: {
-          create: job.studyRoutes,
+      });
+    } else {
+      return await prisma.job.create({
+        data: {
+          ...job,
+          studyRoutes: { create: job.studyRoutes },
         },
-      },
-    });
+      });
+    }
   }
 
   static async getById(id: number): Promise<Job | null> {

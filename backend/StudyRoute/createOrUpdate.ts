@@ -7,7 +7,6 @@ export const createOrUpdateStudyRoute = async (
 ) => {
   const novoStudyRoute = {
     ...studyRoute,
-    id: studyRoute.id ?? 0,
   } as StudyRoute;
 
   return StudyRouteRepository.createOrUpdate(novoStudyRoute);

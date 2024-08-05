@@ -4,7 +4,7 @@ import JobRepository from "./jobRepository";
 import { Job } from "@/app/types";
 
 export const createOrUpdateJob = async (job: Partial<Job>) => {
-  const novoJob = { ...job, id: job.id ?? 0 } as Job;
+  const newJob = { ...job } as Job;
 
-  return JobRepository.createOrUpdate(novoJob);
+  return JobRepository.createOrUpdate(newJob);
 };

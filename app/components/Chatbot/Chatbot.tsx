@@ -24,7 +24,10 @@ export default function Chatbot() {
         const userMessage: Message = { role: "user", content: userInput };
         const jobMessage: Message = {
           role: "user",
-          content: `Eu tenho uma nova vaga de emprego, cujo título é ${jobData.title}. Esta é a descrição da vaga: ${jobData.description}, e estas são as tecnologias exigidas pela vaga: ${jobData.technologies}. Crie uma rotina de estudos para esta vaga.`,
+          content: `Eu tenho uma nova vaga de emprego, cujo título é 
+          ${jobData.title}. Esta é a descrição da vaga: 
+          ${jobData.description}, e estas são as tecnologias exigidas pela vaga: 
+          ${jobData.technologies}. Crie uma rotina de estudos para esta vaga.`,
         };
 
         const newMessages = [...messages, jobMessage, userMessage];
