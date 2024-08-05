@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 import { Message } from "../../types";
 import JobForm from "../JobForm/JobForm";
 import { JobElement } from "../JobForm/JobForm";
+import { createOrUpdateJob } from "@/backend/Jobs/createOrUpdate";
+import { createOrUpdateStudyRoute } from "@/backend/StudyRoute/createOrUpdate";
+import ReactMarkdown from "react-markdown";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [userInput, setUserInput] = useState("");
   const [jobData, setJobData] = useState<{
+    id?: number;
     title: string;
     description: string;
     technologies: string;
@@ -21,7 +25,6 @@ export default function Chatbot() {
 
   useEffect(() => {
     if (jobData) {
-      // Atualiza mensagens e envia a mensagem somente se jobData estiver definido
       const sendJobMessage = async () => {
         const userMessage: Message = { role: "user", content: userInput };
         const jobMessage: Message = {
@@ -50,6 +53,11 @@ export default function Chatbot() {
           console.log("Received response:", data);
           setMessages([...newMessages, data.response]);
           setUserInput("");
+
+          await createOrUpdateStudyRoute({
+            jobId: jobData.id,
+            content: data.response.content,
+          });
         } catch (error) {
           console.error("Error:", error);
         }
@@ -59,16 +67,22 @@ export default function Chatbot() {
     }
   }, [jobData]);
 
-  const handleJobData = (job: JobElement) => {
-    setJobData(job);
+  const handleJobData = async (job: JobElement) => {
+    //Criar instância de Job
+    try {
+      const savedJob = await createOrUpdateJob(job);
+      setJobData({ ...job, id: savedJob.id });
+    } catch (error) {
+      console.error("Failed to save job:", error);
+    }
   };
 
   return (
-    <div className="w-full flex flex-col gap-2">
-      <div className="bg-zinc-800 h-[70vh]  p-4 rounded-md overflow-auto">
+    <div className="w-full flex flex-col gap-6">
+      <div className="bg-zinc-800 h-[60vh]  p-4 rounded-md overflow-auto">
         {messages.map((message, index) => (
           <div key={index} className={message.role}>
-            {message.content}
+            <ReactMarkdown>{message.content}</ReactMarkdown>
           </div>
         ))}
       </div>

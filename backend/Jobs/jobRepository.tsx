@@ -5,8 +5,18 @@ export default class JobRepository {
   static async createOrUpdate(job: Job): Promise<Job> {
     return await prisma.job.upsert({
       where: { id: job.id },
-      update: job,
-      create: job,
+      update: {
+        ...job,
+        studyRoutes: {
+          create: job.studyRoutes,
+        },
+      },
+      create: {
+        ...job,
+        studyRoutes: {
+          create: job.studyRoutes,
+        },
+      },
     });
   }
 

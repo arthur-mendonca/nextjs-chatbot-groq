@@ -10,6 +10,7 @@ export interface Job {
   technologies: string;
   createdAt: Date;
   updatedAt: Date;
+  studyRoutes?: StudyRoute[];
 }
 
 export interface StudyRoute {

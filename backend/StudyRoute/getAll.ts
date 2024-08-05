@@ -1,5 +1,7 @@
+"use server";
+
 import StudyRouteRepository from "./studyRouteRepository";
 
-export const obterTodosStudyRoute = async () => {
+export const getAllStudyRoutes = async () => {
   return StudyRouteRepository.getAll();
 };

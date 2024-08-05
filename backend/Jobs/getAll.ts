@@ -1,5 +1,7 @@
+"use server";
+
 import JobRepository from "./jobRepository";
 
-export const obterTodosJob = async () => {
+export const getAllJobs = async () => {
   return JobRepository.getAll();
 };

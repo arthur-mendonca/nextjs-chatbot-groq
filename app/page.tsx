@@ -1,13 +1,16 @@
 import Chatbot from "./components/Chatbot/Chatbot";
+import Layout from "./components/Layout/Layout";
 
-export default function Home() {
+import React, { ReactNode } from "react";
+
+interface HomeProps {
+  children: ReactNode;
+}
+
+export default function Home({ children }: HomeProps): JSX.Element {
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <p>Groq Chatbot</p>
-
-        <Chatbot />
-      </main>
+      <Layout>{children}</Layout>
     </>
   );
 }
